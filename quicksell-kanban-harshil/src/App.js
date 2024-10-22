@@ -28,6 +28,24 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const savedSortBy = localStorage.getItem('sortBy');
+    const savedGroupBy = localStorage.getItem('groupBy');
+    
+    if (savedSortBy) {
+      setSortBy(savedSortBy);
+    }
+
+    if (savedGroupBy) {
+      setGroupBy(savedGroupBy);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('sortBy', sortBy);
+    localStorage.setItem('groupBy', groupBy);
+  }, [sortBy, groupBy]);
+
+  useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownOpen && dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setDropdownOpen(false);
