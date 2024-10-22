@@ -6,6 +6,7 @@ import './App.css';
 function App() {
   const [tickets, setTickets] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sortBy, setSortBy] = useState('priority'); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +22,16 @@ function App() {
     fetchData();
   }, []);
 
+
+  const sortedTickets = [...tickets].sort((a, b) => {
+    if (sortBy === 'priority') {
+      return b.priority - a.priority; 
+    } else if (sortBy === 'title') {
+      return a.title.localeCompare(b.title); 
+    }
+    return 0;
+  });
+
   if (loading) {
     return <div className="App">Loading...</div>;
   }
@@ -28,7 +39,16 @@ function App() {
   return (
     <div className="App">
       <h1>Kanban Board</h1>
-      <KanbanBoard tickets={tickets} />
+
+      <div>
+        <label>Sort by: </label>
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          <option value="priority">Priority</option>
+          <option value="title">Title</option>
+        </select>
+      </div>
+
+      <KanbanBoard tickets={sortedTickets} />
     </div>
   );
 }
