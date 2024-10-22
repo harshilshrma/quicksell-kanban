@@ -6,3 +6,76 @@ body {
 .App {
   padding: 1rem;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.dropdown-toggle {
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: white;
+}
+
+.dropdown-toggle img.dropdown-icon {
+  width: 1rem;
+  margin-right: 0.5rem;
+}
+
+.dropdown-toggle img.arrow-icon {
+  margin-left: 0.3rem;
+  width: 20px;
+}
+
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 1;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 7px;
+  
+}
+.dropdown-row {
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
+}
+
+.dropdown-item {
+  margin-bottom: 10px;
+}
+
+.dropdown-item label {
+  margin-right: 10px;
+}
+
+.dropdown-label {
+  font-weight: 600;
+}
+
+.dropdown-toggle p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+select {
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.label {
+  font-size: 1rem;
+}

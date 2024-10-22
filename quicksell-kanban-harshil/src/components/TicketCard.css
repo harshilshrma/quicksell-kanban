@@ -1,5 +1,5 @@
 .ticket-card {
-    border: 1px solid #ccc;
+    border: 0.5px solid #ccc;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 20px;
@@ -40,9 +40,16 @@
     margin-top: 5px;
 }
 
+.ticket-details span{
+    font-size: 0.9rem;
+    color: rgb(144, 144, 152);
+    font-weight: bold ;
+}
+
+
 .priority-image {
-    width: 20px; 
-    height: 20px;
+    width: 1.2rem; 
+    height: 1.2rem;
     margin-right: 5px;
 }
 

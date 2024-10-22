@@ -1,7 +1,8 @@
 .kanban-board {
     display: flex;
     justify-content: space-between;
-    background-color: #f4f4f4;  
+    background-color: #f7f7f7;  
+    border-radius: 10px;
 }
 
 .kanban-column {
