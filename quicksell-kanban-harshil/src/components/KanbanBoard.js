@@ -36,8 +36,8 @@ const KanbanBoard = ({ tickets, users, groupBy }) => {
         });
     } else if (groupBy === 'priority') {
         tickets.forEach(ticket => {
-            
-            const priorityLevel = ticket.priority; 
+
+            const priorityLevel = ticket.priority;
             const priorityLabel =
                 priorityLevel === 4 ? 'Urgent' :
                     priorityLevel === 3 ? 'High' :
@@ -66,27 +66,31 @@ const KanbanBoard = ({ tickets, users, groupBy }) => {
         <div className="kanban-board">
             {Object.keys(groupedTickets).map(group => (
                 <div key={group} className="kanban-column">
-                    <h2 className="kanban-column-heading">
-                        {groupBy === 'status' && (
-                            <>
-                                <img src={statusIcons[group]} alt={group} className="group-icon" />
-                                {group}
-                            </>
-                        )}
-                        {groupBy === 'priority' && (
-                            <>
-                                <img src={priorityIcons[group]} alt={group} className="group-icon" />
-                                {groupedTickets[group].label} 
-                            </>
-                        )}
-                        {groupBy === 'user' && (
-                            <>
-                                {group} 
-                            </>
-                        )}
-                        <img src={plusIcon} alt="Add" className="action-icon" />
-                        <img src={threeDotsIcon} alt="Menu" className="action-icon" />
-                    </h2>
+                    <h3 className="kanban-column-heading">
+                        <div className="kanban-column-heading-1">
+                            {groupBy === 'status' && (
+                                <>
+                                    <img src={statusIcons[group]} alt={group} className="group-icon" />
+                                    {group}
+                                </>
+                            )}
+                            {groupBy === 'priority' && (
+                                <>
+                                    <img src={priorityIcons[group]} alt={group} className="group-icon" />
+                                    {groupedTickets[group].label}
+                                </>
+                            )}
+                            {groupBy === 'user' && (
+                                <>
+                                    {group}
+                                </>
+                            )}
+                        </div>
+                        <div className="kanban-column-heading-2">
+                            <img src={plusIcon} alt="Add" className="action-icon" />
+                            <img src={threeDotsIcon} alt="Menu" className="action-icon" />
+                        </div>
+                    </h3>
                     {groupBy === 'priority'
                         ? groupedTickets[group].tickets.map(ticket => (
                             <TicketCard key={ticket.id} ticket={ticket} />

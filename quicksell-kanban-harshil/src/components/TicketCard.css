@@ -1,15 +1,18 @@
 .ticket-card {
     border: 1px solid #ccc;
     padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
     position: relative;
+    background-color: #ffffff;
 }
 
 .ticket-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: rgb(144, 144, 152);
+    font-weight: 500;
 }
 
 .ticket-id {

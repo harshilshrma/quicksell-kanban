@@ -1,13 +1,14 @@
 .kanban-board {
     display: flex;
     justify-content: space-between;
+    background-color: #f4f4f4;  
 }
 
 .kanban-column {
-    background-color: #f4f4f4;
     border-radius: 5px;
-    padding: 10px;
+    padding: 1rem;
     width: 30%;
+    margin: 1rem;
 }
 
 .kanban-column h2 {
@@ -15,6 +16,17 @@
 }
 
 .kanban-column-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.kanban-column-heading-1 {
+    display: flex;
+    align-items: center;
+}
+
+.kanban-column-heading-2 {
     display: flex;
     align-items: center;
 }
@@ -27,7 +39,7 @@
 
 .action-icon {
     margin-left: 8px;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
 }
