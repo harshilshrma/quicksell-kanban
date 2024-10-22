@@ -3,7 +3,7 @@ import TicketCard from './TicketCard';
 import './KanbanBoard.css';
 
 const statusIcons = {
-    'Todo': '/icons/To-Do.svg',
+    'Todo': '/icons/icontodo.svg',
     'In progress': '/icons/in-progress.svg',
     'Backlog': '/icons/Backlog.svg',
 };
