@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import KanbanBoard from './components/KanbanBoard';
+import AboutPage from './components/AboutPage';
 import './App.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   const [sortBy, setSortBy] = useState('priority');
   const [groupBy, setGroupBy] = useState('status');
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [showAboutPage, setShowAboutPage] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -26,24 +28,6 @@ function App() {
     };
     fetchData();
   }, []);
-
-  useEffect(() => {
-    const savedSortBy = localStorage.getItem('sortBy');
-    const savedGroupBy = localStorage.getItem('groupBy');
-    
-    if (savedSortBy) {
-      setSortBy(savedSortBy);
-    }
-
-    if (savedGroupBy) {
-      setGroupBy(savedGroupBy);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('sortBy', sortBy);
-    localStorage.setItem('groupBy', groupBy);
-  }, [sortBy, groupBy]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -72,44 +56,62 @@ function App() {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const handleAboutClick = () => {
+    setShowAboutPage(true);
+  };
+
+  const handleBackClick = () => {
+    setShowAboutPage(false);
+  };
+
   if (loading) {
     return <div className="App">Loading...</div>;
   }
 
   return (
     <div className="App">
-      <h1>Kanban Board</h1>
+      {showAboutPage ? (
+        <AboutPage onBack={handleBackClick} />
+      ) : (
+        <>
+          <h1>Kanban Board</h1>
 
-      <div className="dropdown" ref={dropdownRef}>
-        <button className="dropdown-toggle" onClick={toggleDropdown}>
-          <img src="/icons/Display.svg" alt="Dropdown Icon" className="dropdown-icon" />
-          <p className='dropdown-label'>Display</p>
-          <img src="/icons/down.svg" alt="Down Arrow Icon" className="arrow-icon" />
-        </button>
+          <p className="about-link" onClick={handleAboutClick} style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}>
+            Learn more about this project
+          </p>
 
-        {dropdownOpen && (
-          <div className="dropdown-content">
-            <div className="dropdown-row">
-              <p>Grouping</p>
-              <select value={groupBy} onChange={(e) => setGroupBy(e.target.value)}>
-                <option value="status">Status</option>
-                <option value="user">User</option>
-                <option value="priority">Priority</option>
-              </select>
-            </div>
+          <div className="dropdown" ref={dropdownRef}>
+            <button className="dropdown-toggle" onClick={toggleDropdown}>
+              <img src="/icons/Display.svg" alt="Dropdown Icon" className="dropdown-icon" />
+              <p className='dropdown-label'>Display</p>
+              <img src="/icons/down.svg" alt="Down Arrow Icon" className="arrow-icon" />
+            </button>
 
-            <div className="dropdown-row">
-              <p>Ordering</p>
-              <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-                <option value="priority">Priority</option>
-                <option value="title">Title</option>
-              </select>
-            </div>
+            {dropdownOpen && (
+              <div className="dropdown-content">
+                <div className="dropdown-row">
+                  <p>Grouping</p>
+                  <select value={groupBy} onChange={(e) => setGroupBy(e.target.value)}>
+                    <option value="status">Status</option>
+                    <option value="user">User</option>
+                    <option value="priority">Priority</option>
+                  </select>
+                </div>
+
+                <div className="dropdown-row">
+                  <p>Ordering</p>
+                  <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+                    <option value="priority">Priority</option>
+                    <option value="title">Title</option>
+                  </select>
+                </div>
+              </div>
+            )}
           </div>
-        )}
-      </div>
 
-      <KanbanBoard tickets={sortedTickets} users={users} groupBy={groupBy} />
+          <KanbanBoard tickets={sortedTickets} users={users} groupBy={groupBy} />
+        </>
+      )}
     </div>
   );
 }
