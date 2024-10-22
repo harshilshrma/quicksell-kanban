@@ -59,7 +59,7 @@ function App() {
           <div className="dropdown-content">
             {/* Grouping option */}
             <div className="dropdown-row">
-              <p>Group by: </p>
+              <p>Grouping</p>
               <select value={groupBy} onChange={(e) => setGroupBy(e.target.value)}>
                 <option value="status">Status</option>
                 <option value="user">User</option>
@@ -69,7 +69,7 @@ function App() {
 
             {/* Sorting option */}
             <div className="dropdown-row">
-              <p>Sort by: </p>
+              <p>Ordering</p>
               <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
                 <option value="priority">Priority</option>
                 <option value="title">Title</option>
