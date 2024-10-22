@@ -17,9 +17,9 @@
 }
 
 .user-image {
-    width: 30px;  /* Adjust size as needed */
+    width: 30px;  
     height: 30px;
-    border-radius: 50%;  /* Circular image */
+    border-radius: 50%;  
 }
 
 .ticket-details {
@@ -29,13 +29,13 @@
 }
 
 .priority-image {
-    width: 20px;  /* Adjust size as needed */
+    width: 20px; 
     height: 20px;
     margin-right: 5px;
 }
 
 .tag {
-    background-color: #f0f0f0;  /* Tag background color */
+    background-color: #f0f0f0; 
     border-radius: 3px;
     padding: 2px 5px;
     font-size: 12px;

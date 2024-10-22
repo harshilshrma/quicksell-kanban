@@ -41,7 +41,6 @@ function App() {
   return (
     <div className="App">
       <h1>Kanban Board</h1>
-
       <div>
         <label>Sort by: </label>
         <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
