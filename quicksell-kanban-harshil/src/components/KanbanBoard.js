@@ -71,18 +71,18 @@ const KanbanBoard = ({ tickets, users, groupBy }) => {
                             {groupBy === 'status' && (
                                 <>
                                     <img src={statusIcons[group]} alt={group} className="group-icon" />
-                                    {group}
+                                    {group} ({groupedTickets[group].length})
                                 </>
                             )}
                             {groupBy === 'priority' && (
                                 <>
                                     <img src={priorityIcons[group]} alt={group} className="group-icon" />
-                                    {groupedTickets[group].label}
+                                    {groupedTickets[group].label} ({groupedTickets[group].tickets.length})
                                 </>
                             )}
                             {groupBy === 'user' && (
                                 <>
-                                    {group}
+                                    {group} ({groupedTickets[group].length})
                                 </>
                             )}
                         </div>
