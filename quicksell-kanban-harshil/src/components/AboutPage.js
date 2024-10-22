@@ -66,6 +66,15 @@ const AboutPage = ({ onBack }) => {
             <p>
                 <strong>Reflection on the Journey:</strong><br />
                 Each challenge improved my problem-solving skills. By the end, I had a functional and aesthetic Kanban board and deepened my understanding of React and CSS. I'm confident that these skills will help me excel as a Frontend Engineer at QuickSell.
+
+            </p>
+
+            <p>
+                → And, I <strong>didn't forget to implement</strong> this too: <strong><em>"Additionally, the application should save the user's view state even after page reload".</em></strong>
+            </p>
+
+            <p>
+                So even if the user reloads, the view state remains the same!
             </p>
 
             <h3>My Experience with TubeMagic</h3>
