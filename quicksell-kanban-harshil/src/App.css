@@ -1,0 +1,9 @@
+/* Add your custom styles here */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.App {
+  text-align: center;
+}
